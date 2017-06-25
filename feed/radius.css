@@ -42,6 +42,13 @@ p {
 	max-width: 666px;
 }
 
+.rotondeTimeline .userColor:before {
+  content: ' \25CF';
+	display: inline-block;
+  margin-top: -20px;
+  font-size: 50px;
+}
+
 .rotondeTimeline img {
 	margin-bottom: 10px;
 }

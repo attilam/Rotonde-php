@@ -57,7 +57,7 @@
 				<main>
 					<?php if ($entry->media != '') : ?> 
 					<a target="_blank" href="<?= $entry->media ?>">
-						<img src="<?= $entry->media ?>" alt="." width="<?= $imgSize ?>" />
+						<img src="<?= $entry->media ?>" alt="" width="<?= $imgSize ?>" />
 					</a>
 					<?php endif ?>
 					
@@ -70,6 +70,7 @@
 					</p>
 				</main>
 				<footer>
+					<span class="userColor" style="color: <?= $entry->user->color ?>;"></span>
 					<img class="avatar" src="<?= $entry->user->avatar ?>" alt="Rotonde avatar" width="25" height="25"/>
 					
 					<ul class="meta">
