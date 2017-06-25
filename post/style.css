@@ -1,0 +1,191 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, input, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 1em;
+}
+
+
+body {
+	font-family: 'Arial', sans-serif;
+	font-weight: 200;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  background: #232323;
+  color: #fff;
+    
+  font-size: 12pt;
+  padding: 20px;
+}
+
+header > a + span {
+    font-size: 7.5pt;
+    line-height: 7pt;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+header .button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+header .backlink {
+    border: 0;
+    padding: 0;
+}
+
+a.button {
+    font-size: 7.5pt;
+    line-height: 1em;
+    min-width: 40px;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+}
+
+.note {
+    color: #444;
+}
+
+form {
+    margin: 50px auto 0;
+    max-width: 700px;
+}
+
+form > * {
+    outline: none;
+}
+
+input[type=text],
+input[type=password],
+input[type=submit] {
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-bottom: 1px solid #fff;
+    display: block;
+    width: 100%;
+    
+    font-size: 18pt;
+    line-height: 1em;
+		background: #232323;
+    color: #fff;
+    padding: 10px 0;
+}
+
+label {
+    font-size: 7.5pt;
+}
+
+input[type=text] {
+	  font-size: 10pt;
+    font-family: "Courier", monospace;
+		background: #232323;  
+    color: #fff;
+}
+
+
+textarea {
+    display: block;
+    border-radius: 0;
+    border: 1px solid #fff;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+
+    font-size: 10pt;
+    font-family: "Courier", monospace;
+    background: #232323;   
+    color: #fff;
+    
+}
+
+input[type=submit] {
+    border: none;
+    background: #fff;
+    color: #000;
+    font-size: 14pt;
+    line-height: 1.6em;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+
+
+
+main {
+	padding-top: 3em;
+}
+
+
+span.time {
+	color: #888;
+	font-size: .7em;
+}
+
+
+h2 {
+    font-size: 24pt;
+    margin: 50px 0 30px;
+    padding: 0;    
+}
+
+main header {
+	margin-bottom: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+span.location {
+	font-size: .7em;
+}
+
+
+
+.logout {
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	font-size: 10pt;
+}
+
+ul {
+  list-style: none;
+	margin: 0 0 100px 0;
+	max-width: 680px;
+	font-size: 11pt;
+}
+
+ul li {
+    margin-bottom: 1em;
+}
+
+ul li img {
+	margin-bottom: 5px;
+}
+
+ul li p a,
+header span a {
+	display: inline;
+	border-bottom: 1px solid;
+}
+

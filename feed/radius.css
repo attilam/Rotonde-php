@@ -1,0 +1,98 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, input, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 1em;
+}
+
+
+body {
+	font-family: 'Arial', sans-serif;
+	font-weight: 200;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  background: #232323;
+  color: #fff;
+    
+  font-size: 14pt;
+  padding: 80px;
+}
+
+a {
+	color: #fff;
+}
+
+p {
+	line-height: 1.4em;
+}
+
+
+/*
+	
+	Timeline
+
+*/
+
+.rotondeTimeline {
+	list-style: none;
+	max-width: 666px;
+}
+
+.rotondeTimeline img {
+	margin-bottom: 10px;
+}
+
+.rotondeTimeline li {
+	margin-bottom: 3em;
+}
+
+.rotondeTimeline li footer {
+	margin-top: 10px;
+	display: flex;
+}
+
+.rotondeTimeline li:hover > footer ul li .userLocation {
+	opacity: 1;
+	
+}
+
+.rotondeTimeline li ul {
+	list-style: none;
+	font-size: .6em;
+	line-height: 1.2em;
+	color: #888;
+	margin-left: 10px;
+}
+
+.rotondeTimeline li ul li {
+	margin: 0;
+}
+
+.rotondeTimeline ul li .userName {
+	color: #fff;
+}
+
+.rotondeTimeline ul li .userLocation {
+	opacity: 0;
+}
+
+.rotondeTimeline ul li a {
+	color: #888;
+}
+
+.rotondeTimeline ul li a:hover {
+	color: #fff;
+}
+
+
+.rotondeTimeline li p a {
+	display: inline-block;
+	text-decoration: none;
+	border-bottom: 1px solid;
+	line-height: 1.1em;
+}
+
