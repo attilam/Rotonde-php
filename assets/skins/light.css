@@ -1,0 +1,34 @@
+
+
+body {
+  background: #eee;
+  color: #222;  
+}
+
+a {
+	color: #222;
+}
+
+
+h1 {
+	background: transparent url('../images/rotondeLogo.svg') no-repeat;
+	background-position: center center;
+	background-size: contain;
+}
+
+.rotondeTimeline li ul {
+	color: #999;
+}
+
+.rotondeTimeline ul li .userName {
+	color: #000;
+}
+
+
+.rotondeTimeline ul li a {
+	color: #999;
+}
+
+.rotondeTimeline ul li a:hover {
+	color: #000;
+}

@@ -4,7 +4,7 @@
 		
 		
 		$userinfo = array(
-    	'USER' => 'FOO'
+    	'malte' => 'method2'
     );
     
 		if(isset($_GET['logout'])) {
@@ -86,7 +86,7 @@
 
     
 	<title>Rotonde π</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
 	
 	<script>
         window.onload = function() {

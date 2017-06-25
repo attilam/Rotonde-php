@@ -43,11 +43,14 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 	<title>Radius &middot; Rotonde timeline</title>
-	<link rel="stylesheet" href="radius.css">
+	<link rel="stylesheet" href="../assets/css/radius.css">
+	<link rel="stylesheet" href="../assets/skins/light.css">
 </head>
 
 <body>
-	<header></header>
+	<header>
+		<a href="#top"><h1>Radius &middot; Rotonde timeline</h1></a>
+	</header>
 	
 	<main>
 		<ul class="rotondeTimeline" id="rotondeTimeline">
