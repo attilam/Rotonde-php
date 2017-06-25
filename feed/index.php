@@ -1,7 +1,10 @@
 <?php
 	
 	ini_set("allow_url_fopen", 1);	  
-	$regEx = ''; // pattern to match jpg/png/gif
+
+	// options
+	
+	$imgSize = 125; // image thumbnail width
 	 
 	// get my feed
 	$f = '../feed.json'; // replace with your feed URL
@@ -59,7 +62,7 @@
 				<main>
 					<?php if ($entry->media != '') : ?> 
 					<a target="_blank" href="<?= $entry->media ?>">
-						<img src="<?= $entry->media ?>" alt="." width="75" />
+						<img src="<?= $entry->media ?>" alt="." width="<?= $imgSize ?>" />
 					</a>
 					<?php endif ?>
 					
