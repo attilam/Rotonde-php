@@ -1,9 +1,7 @@
 <?php
-	
 	ini_set("allow_url_fopen", 1);	  
 
 	// options
-	
 	$imgSize = 125; // image thumbnail width
 	 
 	// get my feed
@@ -15,14 +13,11 @@
 	
 	// helper function to sort timeline by time of entry
 	function cmp($a, $b) { 
-    if($a->time == $b->time) {
-        return 0;
-    } 
+		if($a->time == $b->time) { return 0 } 
     return ($a->time > $b->time) ? -1 : 1;
 	} 
 	
 	// get followed feeds and build timeline
-
 	$timeline = array();	
 	
 	foreach($following as $followingUrl) {
@@ -43,9 +38,9 @@
 <head>
 	<meta charset="UTF-8"/>
 	<meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 	<title>Radius &middot; Rotonde timeline</title>
 	<link rel="stylesheet" href="radius.css">
