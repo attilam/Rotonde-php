@@ -4,7 +4,7 @@
 		
 		
 		$userinfo = array(
-    	'malte' => 'method2'
+    	'USER' => 'foo'
     );
     
 		if(isset($_GET['logout'])) {
@@ -49,6 +49,10 @@
  	           
  	           $entry['text'] = $_POST['text'];
  	           $entry['time'] = $_POST['timestamp'];
+
+ 							if ($_POST['pos']) {
+ 								$entry['position'] = $_POST['pos'];
+ 							}
  	           
  							if ($_POST['ref']) {
  								$entry['ref'] = $_POST['ref'];
@@ -85,8 +89,8 @@
     <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
 
     
-	<title>Rotonde π</title>
-	<link rel="stylesheet" href="../assets/css/style.css">
+	<title>Radius &middot; new Rotonde post</title>
+	<link rel="stylesheet" href="../assets/css/post.css">
 	
 	<script>
         window.onload = function() {
@@ -97,15 +101,17 @@
 
 <body>
 	   <?php if ($_SESSION['user']): ?>
-    <header>
-        <h1>Rotonde</h1>
-        <span>π</span>
-    </header>
+
 
     <form method="post" action="?">
         
         <textarea id="text" name="text"></textarea>
         <label for="text">Text</label>
+        
+        <br/>
+
+        <input id="pos" name="pos" type="text">
+        <label for="pos">Position</label>
         
         <br/>
         
@@ -115,12 +121,12 @@
         <br/>
         
         <input id="media" name="media" type="text">
-        <label for="ref">Media</label>
+        <label for="media">Media</label>
         
         <br/>
         
         <input id="url" name="url" type="text">
-        <label for="ref">URL</label>
+        <label for="url">URL</label>
         
         <br/>
         

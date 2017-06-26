@@ -89,11 +89,13 @@
 					<ul class="meta">
 						<li class="user">
 							<span class="userName"><?= $entry->user->name ?></span>
-							<? if ($entry->ref != '') : ?>
-								<span class="reference"> ⤷ <?= $entry->ref ?>
-							<? else : ?>
-								<span class="userLocation"> from <a href="https://www.google.de/maps/place/<?= $entry->user->location ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->user->location ?></a>
-							<? endif ?>
+							<?php if ($entry->ref != '') : ?>
+								<span class="reference"> ⤷ <?= $entry->ref ?></span>
+							<?php elseif ($entry->position != '') : ?>
+								<span class="position"> from <a href="https://www.google.de/maps/place/<?= $entry->position ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->position ?></a></span>
+							<?php else : ?>
+								<span class="userLocation"> from <a href="https://www.google.de/maps/place/<?= $entry->user->location ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->user->location ?></a></span>
+							<?php endif ?>
 							</span>
 						</li>
 						<li class="time"><?= date('m.d.y - H:m:s', $entry->time) ?> (<?= $entry->time ?>)</li>
