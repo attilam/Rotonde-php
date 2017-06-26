@@ -42,6 +42,17 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/images/favicons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/images/favicons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/images/favicons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/images/favicons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="../assets/images/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="../assets/images/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="../assets/images/favicons/manifest.json">
+	<link rel="mask-icon" href="../assets/images/favicons/safari-pinned-tab.svg" color="#000">
+	<link rel="shortcut icon" href="../assets/images/favicons/favicon.ico">
+
 	<title>Radius &middot; Rotonde timeline</title>
 	<link rel="stylesheet" href="../assets/css/feed.css">
 </head>
