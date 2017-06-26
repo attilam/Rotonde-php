@@ -43,7 +43,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 	<title>Radius &middot; Rotonde timeline</title>
-	<link rel="stylesheet" href="../assets/css/radius.css">
+	<link rel="stylesheet" href="../assets/css/feed.css">
 </head>
 
 <body>
