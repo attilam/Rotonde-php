@@ -30,7 +30,7 @@
 			}
 	}
 	
-	// sort by time posted
+	// sort by timestamp
 	usort($timeline, 'cmp');
 ?>
 
@@ -44,7 +44,6 @@
 
 	<title>Radius &middot; Rotonde timeline</title>
 	<link rel="stylesheet" href="../assets/css/radius.css">
-	<link rel="stylesheet" href="../assets/skins/light.css">
 </head>
 
 <body>
@@ -77,11 +76,18 @@
 					<img class="avatar" src="<?= $entry->user->avatar ?>" alt="Rotonde avatar" width="25" height="25"/>
 					
 					<ul class="meta">
-						<li class="user"><span class="userName"><?= $entry->user->name ?></span><span class="userLocation"> from <a href="https://www.google.de/maps/place/<?= $entry->user->location ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->user->location ?></a></span></li>
+						<li class="user">
+							<span class="userName"><?= $entry->user->name ?></span>
+							<? if ($entry->ref != '') : ?>
+								<span class="reference"> ⤷ <?= $entry->ref ?>
+							<? else : ?>
+								<span class="userLocation"> from <a href="https://www.google.de/maps/place/<?= $entry->user->location ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->user->location ?></a>
+							<? endif ?>
+							</span>
+						</li>
 						<li class="time"><?= date('m.d.y - H:m:s', $entry->time) ?> (<?= $entry->time ?>)</li>
 					</ul>
 				</footer>
-			
 			</li>
 		
 		<?php endforeach ?>
