@@ -100,8 +100,11 @@
 </head>
 
 <body>
+		<header>
+			<a href="#top"><h1>Radius &middot; Rotonde timeline</h1></a>
+		</header>
+		
 	   <?php if ($_SESSION['user']): ?>
-
 
     <form method="post" action="?">
         
@@ -136,10 +139,6 @@
     </form>
         	   	<a class="logout" id="logout" href="?logout=1">logout</a>
 	<?php else: ?>
-	    <header>
-        <h1>Rotonde</h1>
-        <span>π</span>
-    	</header>
     	
 	    <main class="login">
             <form name="login" action="" method="post">

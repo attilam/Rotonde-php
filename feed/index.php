@@ -5,7 +5,7 @@
 	$imgSize = 125; // image thumbnail width
 	 
 	// get my feed
-	$f = '../feed.json'; // replace with your feed URL
+	$f = 'http://rotonde.electricgecko.de/feed.json'; // replace with your feed URL
 	$myFeed = json_decode(file_get_contents($f)); 	
 	
 	// get list of portals i'm following
@@ -63,6 +63,7 @@
 	</header>
 	
 	<main>
+		<a class="btn" href="../post/">Post entry</a>
 		<ul class="rotondeTimeline" id="rotondeTimeline">
 		<?php foreach ($timeline as $entry) :?>
 			

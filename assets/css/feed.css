@@ -25,6 +25,18 @@ a {
 	color: #fff;
 }
 
+a.btn {
+	border: 1px solid #fff;
+	color: #fff;
+	border-radius: 2px;
+	padding: 8px 12px;
+}
+
+a.btn:hover {
+	background: #fff;
+	color: #000;
+}
+
 p {
 	line-height: 1.4em;
 }
@@ -43,7 +55,7 @@ header {
 }
 
 body > main {
-	margin: 160px 0 100px 120px;
+	margin: 65px 0 100px 120px;
 }
 
 h1 {
@@ -58,6 +70,7 @@ h1 {
 .rotondeTimeline {
 	list-style: none;
 	max-width: 666px;
+	margin-top: 100px;
 }
 
 .rotondeTimeline .userColor:before {
