@@ -5,7 +5,7 @@
 	$imgSize = 125; // image thumbnail width
 	 
 	// get my feed
-	$f = 'http://rotonde.electricgecko.de/feed.json'; // replace with your feed URL
+	$f = '../feed.json'; // replace with your feed URL
 	$myFeed = json_decode(file_get_contents($f)); 	
 	
 	// get list of portals i'm following
@@ -66,6 +66,24 @@
 		<a class="btn" href="../post/">Post entry</a>
 		<ul class="rotondeTimeline" id="rotondeTimeline">
 		<?php foreach ($timeline as $entry) :?>
+		
+		<?
+			$positionTitle = $entry->position;
+			if ($entry->position != '') {
+				$latlong = explode(", ", $entry->position);
+				
+				// get place name from open street map
+				$curl_handle=curl_init();
+				curl_setopt($curl_handle, CURLOPT_URL,'http://nominatim.openstreetmap.org/reverse?format=json&lat='.$latlong[0].'&lon='.$latlong[1].'&zoom=18&addressdetails=1');
+				curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+				curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($curl_handle, CURLOPT_USERAGENT, 'Radius &middot; Rotonde timeline');
+				$return = json_decode(curl_exec($curl_handle));
+				curl_close($curl_handle);
+			
+				($return->address->city != '') ? $positionTitle = $return->address->city : $positionTitle = $return->address->state;
+			}
+		?>
 			
 			<li>
 				<main>
@@ -93,7 +111,7 @@
 							<?php if ($entry->ref != '') : ?>
 								<span class="reference"> ⤷ <?= $entry->ref ?></span>
 							<?php elseif ($entry->position != '') : ?>
-								<span class="position"> from <a href="https://www.google.de/maps/place/<?= $entry->position ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->position ?></a></span>
+								<span class="position"> from <a href="https://www.google.de/maps/place/<?= $entry->position ?>" style="border-color: <?= $entry->user->color ?>;"><?= $positionTitle ?></a></span>
 							<?php else : ?>
 								<span class="userLocation"> from <a href="https://www.google.de/maps/place/<?= $entry->user->location ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->user->location ?></a></span>
 							<?php endif ?>
