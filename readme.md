@@ -1,5 +1,5 @@
 # Rotonde web client
-Very basic, php-based web client to view an ordered timeline based on a base Rotonde feed. It's awfully slow and needs some caching to be more usable.
+Very basic, php-based web client to view an ordered timeline based on a base Rotonde feed. It's awfully slow and needs some caching to be more usable. Also, ***/post** is hastily duct-taped together and needs to be consolidated with the feed view.
 
 There is a running instance at http://rotonde.electricgecko.de/feed/
 
