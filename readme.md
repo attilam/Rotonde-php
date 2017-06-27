@@ -15,4 +15,4 @@ Visit **/feed** to display a timeline of all feeds listed in the *Portal* sectio
 Visit **/post** to add a new post to your base Rotonde feed.
 
 
-_(note: this is not secured, so anyone with the link can post to your rotonde feed)_
+_(note: this is not secured, so anyone with the link can post to your rotonde feed. [read how to secure it](http://www.htaccess-guide.com/password-protection/).)_
