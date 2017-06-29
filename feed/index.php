@@ -1,8 +1,10 @@
 <?php
 	ini_set("allow_url_fopen", 1);	  
+	date_default_timezone_set('Europe/Berlin');
 
 	// options
 	$imgSize = 125; // image thumbnail width
+	$embedSize = 250; // youtube embed size
 	 
 	// get my feed
 	$f = '../feed.json'; // replace with your feed URL
@@ -16,7 +18,7 @@
 		if ($a->time == $b->time) { return 0; } 
 		return ($a->time > $b->time) ? -1 : 1;
 	} 
-	
+		
 	// get followed feeds and build timeline
 	$timeline = array();	
 	
@@ -87,11 +89,24 @@
 			
 			<li>
 				<main>
-					<?php if ($entry->media != '') : ?> 
-					<a target="_blank" href="<?= $entry->media ?>">
-						<img src="<?= $entry->media ?>" alt="" width="<?= $imgSize ?>" />
-					</a>
-					<?php endif ?>
+					<?php
+						// parse media property 
+						if ($entry->media != '' ) {
+							if (strpos($entry->media, 'youtube') == 0) {
+								// image
+								$entryMedia = '<a target="_blank" href="'.$entry->media.'"><img src="'.$entry->media.'" onerror=this.style.display="none" alt="" width="'.$imgSize.'" /></a>';
+								
+							} else {
+								// youtube video
+								parse_str( parse_url( $entry->media, PHP_URL_QUERY ), $results);   
+								$entryMedia = '<iframe width="'.$embedSize.'" height="auto" src="https://www.youtube-nocookie.com/embed/'.$results['v'].'?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+
+							}
+							
+							echo $entryMedia;
+							$entryMedia = '';
+						}
+					?>
 					
 					<p>
 						<?= $entry->text ?>
@@ -103,8 +118,8 @@
 				</main>
 				<footer>
 					<span class="userColor" style="color: <?= $entry->user->color ?>;"></span>
-					<img class="avatar" src="<?= $entry->user->avatar ?>" alt="Rotonde avatar" width="25" height="25"/>
-					
+					<img class="avatar" src="<?= $entry->user->avatar ?>" onerror=this.style.display="none" alt="Rotonde avatar" width="25" height="25"/>
+				
 					<ul class="meta">
 						<li class="user">
 							<span class="userName"><?= $entry->user->name ?></span>
