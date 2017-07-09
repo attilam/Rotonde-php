@@ -2,10 +2,7 @@
 		ob_start();
 		session_start();
 		
-		
-		$userinfo = array(
-    	'USER' => 'foo'
-    );
+		require_once('accounts.php');
     
 		if(isset($_GET['logout'])) {
 	    $_SESSION['user'] = '';
