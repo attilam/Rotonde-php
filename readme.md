@@ -7,7 +7,7 @@ There is a running instance at http://rotonde.electricgecko.de/feed/
 - Copy all files to your server. 
 - Point a **rotonde.** subdomain to the folder you copied the script to.
 - Create a *feed.json* in the main folder and edit it according to the [Rotonde Spec](https://github.com/Rotonde/Specs).
-- Edit **/post/index.php** with a username and password combination to authenticate yourself before posting, like so:
+- Edit **/post/accounts.php** with a username and password combination to authenticate yourself before posting, like so:
 
     ```
 	$userinfo = array(
