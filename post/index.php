@@ -3,7 +3,7 @@
 		session_start();
 		
 		require_once('accounts.php');
-    
+
 		if(isset($_GET['logout'])) {
 	    $_SESSION['user'] = '';
 	    setcookie('rotondeSession','', time()-86400, '/');
@@ -17,12 +17,13 @@
 		
 		else if (isset($_POST['user'])) {
 		  	
-		    if($userinfo[$_POST['user']] == $_POST['password']) {
+		    if ((array_key_exists($_POST['user'], $userinfo)) && $userinfo[$_POST['user']] == $_POST['password']) {
 		        $_SESSION['user'] = $_POST['user'];
 		        setcookie('rotondeSession',$_POST['user'], time()+86400*30, '/');
 		   
 		    } else {
 		       echo 'invalid login';
+		       $_SESSION['user'] = '';
 		    }
 		}
 		ob_end_flush();
