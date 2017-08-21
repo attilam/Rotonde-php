@@ -13,6 +13,10 @@
 	// get list of portals i'm following
 	$following = $myFeed->portal;
 
+	// HACK: add myself to the feed
+	if (!in_array('rotonde.attilam.com', $following))
+		$following[] = 'rotonde.attilam.com';
+
 	// helper function to sort timeline by time of entry
 	function cmp($a, $b) { 
 		if ($a->time == $b->time) { return 0; } 
