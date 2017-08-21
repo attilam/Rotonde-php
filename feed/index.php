@@ -3,7 +3,7 @@
 	date_default_timezone_set('Europe/Berlin');
 
 	// options
-	$imgSize = 125; // image thumbnail width
+	$imgSize = 600; // image thumbnail width
 	$embedSize = 250; // youtube embed size
 	 
 	// get my feed
@@ -12,7 +12,7 @@
 	
 	// get list of portals i'm following
 	$following = $myFeed->portal;
-	
+
 	// helper function to sort timeline by time of entry
 	function cmp($a, $b) { 
 		if ($a->time == $b->time) { return 0; } 
@@ -21,14 +21,17 @@
 		
 	// get followed feeds and build timeline
 	$timeline = array();	
-	
+	$num = 1;
+
 	foreach($following as $followingUrl) {
 		$user = json_decode(file_get_contents('http://'.$followingUrl));
 		
 			foreach ($user->feed as $userPost) {
 				// attach user info to each post
-				$userPost = (object) array_merge( (array)$userPost, array( 'user' => $user->profile ) );
+				$userPost = (object) array_merge( (array)$userPost, array( 'user' => $user->profile, 'orig' => $userPost, 'num' => $num ) );
 				$timeline[] = $userPost;
+
+				$num++;
 			}
 	}
 	
@@ -57,6 +60,20 @@
 
 	<title>Radius &middot; Rotonde timeline</title>
 	<link rel="stylesheet" href="../assets/css/feed.css">
+	<style type="text/css">
+		.jsonSource {
+			font-family: "Lucida Console", Monaco, monospace;
+			background-color: white;
+			color: #222;
+			padding: 8px;
+		}
+	</style>
+	<script type="text/javascript">
+		function toggle(id) {
+			let div = document.getElementById(id)
+			div.style.display = div.style.display == "none" ? "block" : "none"
+		}
+	</script>
 </head>
 
 <body>
@@ -121,7 +138,6 @@
 				<footer>
 					<span class="userColor" style="color: <?= $entry->user->color ?>;"></span>
 					<img class="avatar" src="<?= $entry->user->avatar ?>" onerror=this.style.display="none" alt="Rotonde avatar" width="25" height="25"/>
-				
 					<ul class="meta">
 						<li class="user">
 							<span class="userName"><?= $entry->user->name ?></span>
@@ -134,7 +150,15 @@
 							<?php endif ?>
 							</span>
 						</li>
-						<li class="time"><?= date('m.d.y - H:m:s', $entry->time) ?> (<?= $entry->time ?>)</li>
+						<li class="time">
+							<?= date('m.d.y - H:m:s', $entry->time) ?> (<?= $entry->time ?>)
+							<a onclick="toggle('json_<?= $entry->num ?>')" style="cursor: pointer;">※</a>
+						</li>
+						<li class="jsonSource" id="json_<?= $entry->num ?>" style="display: none;">
+							<?php
+								echo json_encode($entry->orig, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+							?>
+						</li>
 					</ul>
 				</footer>
 			</li>
