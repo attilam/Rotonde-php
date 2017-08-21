@@ -67,12 +67,14 @@
 	<main>
 		<a class="btn" href="../post/">Post entry</a>
 		<ul class="rotondeTimeline" id="rotondeTimeline">
-		<?php foreach ($timeline as $entry) :?>
-		
-		<?
-			$positionTitle = $entry->position;
-			if ($entry->position != '') {
-				$latlong = explode(", ", $entry->position);
+		<?php foreach ($timeline as $entry) :
+
+			$position = $entry->position != '' ? $entry->position : $entry->user->position;
+			$location = $entry->location != '' ? $entry->location : $entry->user->location;
+
+			$positionTitle = $position;
+			if ($position != '') {
+				$latlong = explode(", ", $position);
 				
 				// get place name from open street map
 				$curl_handle=curl_init();
@@ -125,10 +127,10 @@
 							<span class="userName"><?= $entry->user->name ?></span>
 							<?php if ($entry->ref != '') : ?>
 								<span class="reference"> ⤷ <?= $entry->ref ?></span>
-							<?php elseif ($entry->position != '') : ?>
-								<span class="position"> from <a href="https://www.google.de/maps/place/<?= $entry->position ?>" style="border-color: <?= $entry->user->color ?>;"><?= $positionTitle ?></a></span>
+							<?php elseif ($position != '') : ?>
+								<span class="position"> from <a href="https://www.google.de/maps/place/<?= $position ?>" style="border-color: <?= $entry->user->color ?>;"><?= $positionTitle ?></a></span>
 							<?php else : ?>
-								<span class="userLocation"> from <a href="https://www.google.de/maps/place/<?= $entry->user->location ?>" style="border-color: <?= $entry->user->color ?>;"><?= $entry->user->location ?></a></span>
+								<span class="userLocation"> from <a href="https://www.google.de/maps/place/<?= $location ?>" style="border-color: <?= $entry->user->color ?>;"><?= $location ?></a></span>
 							<?php endif ?>
 							</span>
 						</li>
